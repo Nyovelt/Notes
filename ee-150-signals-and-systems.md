@@ -38,9 +38,55 @@ $$ Odd(t) = \frac12 ( x(t) - x(-t) )$$
 
 * Preodic: $$ x(t) = x(t+mT)$$ or $$ x[t] = x[t+mT]$$ 
   * Fundamental period $$T$$:  Smallest positive $$T$$
+  * 如果是合成的 signal, 其 Fundamental Period 是**最小公倍数**
 * Aperiodic: Non-preodic
 
+#### Eular's Formula
+
+$$ e^{j \omega0 t} = \cos ( \omega0 t ) + j \cdot \sin (\omega_0 t) $$
+
+* Fundamental period $$T_0 = 2 \pi / \mid \omega _0 \mid$$ 
+* $$A \cos (\omega0 t + \phi) = \frac A2 e^{j \phi} e^{j \omega_0 t} + \frac A2 e^{-j \phi} e^{-j \omega_0 t}$$
+* 只要基础频率 $$ \omega_0$$ 一样， 指数和三角函数可以互相转化
+
 #### Sin
+
+$$ x(t) = A \cos (\omega _0 t + \phi )$$
+
+* unit: $$\omega_0$$
+* radians: $$\phi$$
+* phase: $$ \omega_0t+\phi$$
+
+![Fundamantal Frequency](.gitbook/assets/image%20%283%29.png)
+
+#### Discrete Time Unit Step and Unit Impulse Sequence
+
+* $$ \delta[n]$$
+  * 只有 $$n=0$$有正值
+
+![](.gitbook/assets/image%20%285%29.png)
+
+* $$ u[n]$$
+  * 只有 $$ n \geq 0 $$有正值
+
+![](.gitbook/assets/image%20%286%29.png)
+
+$$ u[n] $$相当于 $$\delta[n]$$的积分
+
+#### Other concepts
+
+* Energy and Power of Periodic Signals: 积分与积分后的处理
+* 谐振
+* 
+### System
+
+
+
+
+
+
+
+
 
 
 
