@@ -82,8 +82,8 @@ description: ShanghaiTech University - Spring 2021
 * 计算方法: e.g. 53.125 =? 110101.001 =&gt; $1.10101001 \* 2^5$ =&gt; 127 + 5 = 132 = 10000100 =&gt; 0 10000100 10101001 000000..
 * 加减法： [https://www.youtube.com/watch?v=wC950FKNl8Y](https://www.youtube.com/watch?v=wC950FKNl8Y)
 * ref
+
   1. [IEEE 754 Simulator](https://www.h-schmidt.net/FloatConverter/IEEE754.html)
-  2. 
 
 ### C Simple
 
@@ -136,20 +136,23 @@ description: ShanghaiTech University - Spring 2021
   * 也就是说会存在**内存复写**
   * size为最大数据结构的大写， 对齐到 4k ， 例如 char 虽然是 1 字节， 但 union 会 size = 4
   * [https://www.geeksforgeeks.org/c-language-2-gq/structure-union-gq/](https://www.geeksforgeeks.org/c-language-2-gq/structure-union-gq/) Q8 is worth doing Q19 helps understanding
-  * \`\`\`C
+  * ```c
+    #include <stdio.h>
+    #include <string.h>
+    union a{
+        char b[6];
+        char c[9];
+    } data;
 
-    **include**
+    int main(){
+        // char d[7];
+        union a A = {"abcdef"};
+        strcpy(A.c, "12345678");
+        printf("%s", A.b);
+    }
+    ```
 
-    **include**
-
-    union a{ char b\[6\]; char c\[9\]; } data;
-
-    int main\(\){ // char d\[7\]; union a A = {"abcdef"}; strcpy\(A.c, "12345678"\); printf\("%s", A.b\); }
-
-  output is 12345678
-
-  ```text
-  - ```C
+  ```c
     #include <stdio.h>
     #include <string.h>
     typedef union {
@@ -161,7 +164,7 @@ description: ShanghaiTech University - Spring 2021
             unsigned short d;
         } data;
     } Datatype;
-
+  
     int main(){
     Datatype y;
     y.num= 0xABCDDCBADCABAAAA;
@@ -170,7 +173,7 @@ description: ShanghaiTech University - Spring 2021
     printf("%d\n", y.data.c);
     printf("%d\n", y.data.d);
     }
-
+  
     // result is proved by gcc, clang, msvc on x86 devices
     [Running]  gcc test.c -o test && test
     43690
@@ -178,7 +181,7 @@ description: ShanghaiTech University - Spring 2021
     56506
     43981
     [Done] exited with code=0 in 1.206 seconds
-
+  
     >>> 0xABCD
     43981
     >>> 0xDCBA
@@ -223,6 +226,7 @@ description: ShanghaiTech University - Spring 2021
     * char\[\] 类型或者数组类型也是自上而下的， 因此在内存中从上往下是 'A', 'B', 'C'。 int 按照小端序读是从下往上读，从左往右的拼接数字，所以是 '\0''C''B''A' = 0x00434241 = 4407873\(D\)
   * 如果感觉自己被加强了，可以试试 [3\(b\)](https://robotics.shanghaitech.edu.cn/courses/ca/20s/notes/midterm_sol.pdf)
 
+* * * 
 ### RISC-V
 
 #### Instructions
@@ -270,5 +274,5 @@ description: ShanghaiTech University - Spring 2021
 
 #### REF
 
-[Risc-V instructions Set](https://1drv.ms/b/s!Au3reWMu7K2ChOZfWdNGg9fNARrDAA?e=QDam4p)
+* [Risc-V instructions Set](https://1drv.ms/b/s!Au3reWMu7K2ChOZfWdNGg9fNARrDAA?e=QDam4p)
 
