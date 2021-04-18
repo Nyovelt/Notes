@@ -108,7 +108,7 @@ $$ x[n] \to y[n] $$ then $$ x[n-n_0] \to y[n-n_0] $$
 
 Example:
 
-![](.gitbook/assets/image%20%287%29.png)
+![](.gitbook/assets/image%20%2810%29.png)
 
 ### Linearity
 
@@ -122,16 +122,23 @@ If linear, zero input gives zero output
 $$x[ n]=0 \to y[n] = 2x[n] = 0 $$
 {% endhint %}
 
+## Convolution
 
+### Begin
 
+We can construct any signal by discrete function  $$ y[n] = x[k]\delta[n-k] $$, so that $$y[n]$$can be valued only at $$k$$ and get $$x[k] $$. By accumulation, the signal can be **piled up**. This is convolution, defined by $$ x[n] =\Sigma _{k = - \infty} ^ {\infty} x[k]\delta[n-k] = x[n] * h[n] $$, which is called **convolution sum**.
 
+Example:
 
+![Origin Signal](.gitbook/assets/image%20%289%29.png)
 
+![pile up](.gitbook/assets/image%20%288%29.png)
 
-\*\*\*\*
+### Properties of Convolution
 
-
-
+* Commutative: $$x(t)∗h(t) =h(t)∗x(t)$$
+* Bi-linear: $$(ax_1(t) +bx_2(t))∗h(t) =a(x_1∗h) +b(x_2∗h),x∗(ah_1+bh_2) =a(x∗h_1) +b(x∗h_2)$$
+* 
 
 
 
