@@ -84,9 +84,31 @@ Output only depends on input **at the same time**
 
 ### nvertibility and Inverse System
 
-Distinct input leads to distinct _output_
+Distinct **input** leads to distinct **output**
+
+### **Causality**
+
+{% hint style="info" %}
+**All memoryless are causal** 
+{% endhint %}
+
+Output only depends on input **at the same time** or **before**
+
+### **Stability**
+
+**Bounded input** gives **Bounded output**
+
+### **T**ime-Invariance
+
+A **time-shift** in the input causes a **same time-shift** in the output
+
+$$ x[n] \to y[n] $$ then $$ x[n-n_0] \to y[n-n_0] $$
+
+Example:
 
 
+
+\*\*\*\*
 
 
 
