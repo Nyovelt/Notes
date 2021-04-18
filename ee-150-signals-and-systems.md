@@ -4,6 +4,8 @@ description: ShanghaiTech University - Spring 2021
 
 # EE 150: Signals and Systems
 
+{% file src=".gitbook/assets/summary.pdf" caption="Summary from UCB" %}
+
 ## Basic concepts
 
 ### Signals and Systems
