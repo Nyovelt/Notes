@@ -57,7 +57,7 @@ $$ x(t) = A \cos (\omega _0 t + \phi )$$
 * radians: $$\phi$$
 * phase: $$ \omega_0t+\phi$$
 
-![Fundamantal Frequency](.gitbook/assets/image%20%283%29.png)
+![Fundamantal Frequency&#xFF0C; &#x89D2;&#x9891;&#x7387;&#x8D8A;&#x5927;&#xFF0C; &#x632F;&#x8361;&#x8D8A;&#x5927;](.gitbook/assets/image%20%283%29.png)
 
 #### Discrete Time Unit Step and Unit Impulse Sequence
 
@@ -76,9 +76,15 @@ $$ u[n] $$相当于 $$\delta[n]$$的积分
 #### Other concepts
 
 * Energy and Power of Periodic Signals: 积分与积分后的处理
-* 谐振
+* 谐振: 同一个角频率的集合
 * 
-### System
+### Properties of System 
+
+#### Memory / Memoryless
+
+
+
+
 
 
 
