@@ -9,7 +9,7 @@ describe: Computer Architecture
 description: ShanghaiTech University - Spring 2021
 ---
 
-# CS 131: Programming Languages and Compilers
+# CS 110: Computer Architecture I
 
 ### Intro
 
