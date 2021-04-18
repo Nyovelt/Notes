@@ -114,6 +114,14 @@ Additivity and Scaling
 
 If $$ x[n] \to y[n] $$ then $$ ax_1[n] + bx_2[n]  \to ay_1[n] + b y_2 [n] $$
 
+{% hint style="info" %}
+If linear, zero input gives zero output 
+
+$$x[ n]=0 \to y[n] = 2x[n] = 0 $$
+{% endhint %}
+
+
+
 
 
 
