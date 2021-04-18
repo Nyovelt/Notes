@@ -106,6 +106,16 @@ $$ x[n] \to y[n] $$ then $$ x[n-n_0] \to y[n-n_0] $$
 
 Example:
 
+![](.gitbook/assets/image%20%287%29.png)
+
+### Linearity
+
+Additivity and Scaling
+
+If $$ x[n] \to y[n] $$ then $$ ax_1[n] + bx_2[n]  \to ay_1[n] + b y_2 [n] $$
+
+
+
 
 
 \*\*\*\*
