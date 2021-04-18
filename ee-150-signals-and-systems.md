@@ -137,8 +137,48 @@ Example:
 ### Properties of Convolution
 
 * Commutative: $$x(t)∗h(t) =h(t)∗x(t)$$
+  * 交换律
 * Bi-linear: $$(ax_1(t) +bx_2(t))∗h(t) =a(x_1∗h) +b(x_2∗h),x∗(ah_1+bh_2) =a(x∗h_1) +b(x∗h_2)$$
-* 
+* Shift: $$x(t−τ)∗h(t) =x(t)∗h(t−τ)$$
+* Identity: δ\(t\) is the identity signal,  $$ x∗δ=x=δ∗x $$
+  * Identity is unique: $$i(t) =i(t)∗δ(t) =δ(t)$$
+* Associative: $$x_1∗(x_2∗x_3) = (x_1∗x_2)∗x_3$$
+* Smooth derivative: $$  y(n)' = x(n)'*h(n) = x(n)*h(n)' $$
+
+### Properties of L.T.I. System
+
+* Memoryless: $$x[n] \neq 0$$ when $$ n = 0 $$
+* Invertibility: A system is invertible only if an inverse system exists.
+* Causality: $$h[n] = 0 $$ when  $$ n < 0 $$
+  * $$ y[n]=\sum_{k=0}^{\infty} h[k] \times[n-k] $$
+  * $$ \begin{equation} y[n]=\sum_{k=-\infty}^{n} x[k] h[n-k] \end{equation} $$
+* Stability: 
+  *  $$ ( \sum_{k=-\infty}^{\infty}|h[k]|<\infty ) $$ 
+* Convolving  $$δ(t)$$ with itself 
+  * $$  ( \delta(t)  * \delta(t)) = \delta(t) $$
+
+### Calculation
+
+Sliding window: 
+
+1. Reverse the simpler one $$x(t) $$
+2. Record reversed $$x(t)$$ 's jumping points
+3. Slide reversed $$x(t)$$, for each $$g(t)$$, is integral of multiplication
+
+$$ g(t)=\int \frac{d}{d t} x * h(t) d t=\ldots $$
+
+$$  \begin{equation}  g(t)=\frac{d}{d t} \int x * h(t) d t=\ldots  \end{equation}$$
+
+
+
+
+
+
+
+
+
+
+
 
 
 
