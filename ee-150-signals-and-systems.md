@@ -191,7 +191,30 @@ When $$ s$$ purely imaginary $$\begin{equation} j k \omega_{0} \end{equation}$$,
 
 * Definition of inner-product of perioidic functions: $$ \begin{equation}  <x_{1}(t), x_{2}(t)>=\frac{1}{T_{0}} \int_{T_{0}} x_{1}(t) x_{2}^{*}(t) d t  \end{equation}$$
 
+## Fourier Analysis
 
+### CT & DT
+
+* CT: $$ e^{j\omega t } $$
+  * $$ \begin{equation}  \mathrm{e}^{\mathrm{j} \omega \mathrm{t}} \longrightarrow \mathrm{H}(\mathrm{j} \omega) \mathrm{e}^{\mathrm{j} \omega \mathrm{t}}  \end{equation}$$
+  * 纯虚数
+* DT: $$ e^{j \omega n }$$
+  * $$ \begin{equation}  \mathrm{e}^{j \omega n} \rightarrow H\left(\mathrm{e}^{j \omega}\right) \mathrm{e}^{j \omega n}  \end{equation}$$
+
+### Periodic signals & Fourier Series Expansion
+
+$$x(t)$$ may be expressed as a Fourier series:
+
+$$ \begin{equation}  x(t)=\sum_{k=-\infty}^{\infty} a_{k} \cdot e^{j k \omega_{0} t}  \end{equation}$$, $$ \begin{equation}  x(t) \leftarrow{ }^{F . S .} \rightarrow a_{k}  \end{equation}$$
+
+sum of sinusoids whose frequencies are multiple of ω0, the “fundamental frequency”.
+
+Where $$a_k$$ can be obtained by
+
+$$ \begin{equation}  a_{k}=\frac{1}{T_{0}} \int_{T_{0}} x(\tau) e^{-j k \omega_{0} \tau} d \tau  \end{equation}$$
+
+* Case 0 is often special!
+* $$a_0$$ controls a constant 
 
 
 
