@@ -216,6 +216,26 @@ $$ \begin{equation}  a_{k}=\frac{1}{T_{0}} \int_{T_{0}} x(\tau) e^{-j k \omega_{
 * Case 0 is often special!
 * $$a_0$$ controls a constant 
 
+And, 
+
+
+
+$$
+\begin{aligned} x(t) &=\sum_{k=-\infty}^{\infty} a_{k} e^{j k \omega_{0} t} \\ &=\sum_{k=-\infty}^{\infty}\left(a_{k} \cos \left(k \omega_{0} t\right)+j a_{k} \sin \left(k \omega_{0} t\right)\right) \\ &=a_{0}+\sum_{k>0}\left(\left(a_{k}+a_{-k}\right) \cos \left(k \omega_{0} t\right)+j\left(a_{k}-a_{-k}\right) \sin \left(k \omega_{0} t\right)\right) \end{aligned}
+$$
+
+#### Odd / Even
+
+![&#x5947;&#x5076;&#x7279;&#x6027;](.gitbook/assets/image%20%2811%29.png)
+
+
+
+#### Approximation
+
+![](.gitbook/assets/image%20%2812%29.png)
+
+## Continuous-Time Fourier Series
+
 
 
 ## REF
