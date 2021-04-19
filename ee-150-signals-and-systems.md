@@ -145,7 +145,7 @@ Example:
 * Associative: $$x_1∗(x_2∗x_3) = (x_1∗x_2)∗x_3$$
 * Smooth derivative: $$  y(n)' = x(n)'*h(n) = x(n)*h(n)' $$
 
-### Properties of L.T.I. System
+### Properties of L.T.I System
 
 * Memoryless: $$x[n] \neq 0$$ when $$ n = 0 $$
 * Invertibility: A system is invertible only if an inverse system exists.
@@ -171,9 +171,33 @@ $$  \begin{equation}  g(t)=\frac{d}{d t} \int x * h(t) d t=\ldots  \end{equation
 
 
 
+## Eigen-function of L.T.I
+
+### Eigen-functions
+
+* A signal for which the system's output is just a constant \(possibly complex\) times the input.
+* **Eigen Basis**: If an input signal can be decomposed to a weighted sum of eigenfunctions \(eigen basis\), then the output can be easily found.
+
+So goal: Getting an **eigen basis** of an L.T.I system.
+
+### e^{st} as eigenfunction of L.T.I
+
+1. Consider the input to be $$ x(t) = e^{st}$$, then the output is $$ y(t)=\int h(\tau) e^{s(t-\tau)} d \tau=e^{s t} \int h(\tau) e^{-s \tau} d \tau$$
+2. $$ \begin{equation}  H(s)=\int h(\tau) e^{-s \tau} d \tau  \end{equation}$$ is just a constant, i.e. eigenvalue for function $$ e^{st}$$
+
+### Orthonormal Basis
+
+When $$ s$$ purely imaginary $$\begin{equation} j k \omega_{0} \end{equation}$$, $$ \begin{equation} e^{j k \omega_{0} t} \end{equation} $$ is orthonormal and standard among different .
+
+* Definition of inner-product of perioidic functions: $$ \begin{equation}  <x_{1}(t), x_{2}(t)>=\frac{1}{T_{0}} \int_{T_{0}} x_{1}(t) x_{2}^{*}(t) d t  \end{equation}$$
 
 
 
+
+
+## REF
+
+* [https://www.josehu.com/assets/file/signals-systems.pdf](https://www.josehu.com/assets/file/signals-systems.pdf)
 
 
 
