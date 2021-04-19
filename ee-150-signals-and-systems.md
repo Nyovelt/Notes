@@ -178,7 +178,7 @@ $$  \begin{equation}  g(t)=\frac{d}{d t} \int x * h(t) d t=\ldots  \end{equation
 * A signal for which the system's output is just a constant \(possibly complex\) times the input.
 * **Eigen Basis**: If an input signal can be decomposed to a weighted sum of eigenfunctions \(eigen basis\), then the output can be easily found.
 
-So goal: Getting an **eigen basis** of an L.T.I system.
+So goal: Getting an **Eigen basis** of an L.T.I system.
 
 ### e^{st} as eigenfunction of L.T.I
 
