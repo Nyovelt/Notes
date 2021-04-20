@@ -234,7 +234,118 @@ $$
 
 ![](.gitbook/assets/image%20%2812%29.png)
 
-## Continuous-Time Fourier Series
+#### Linearity
+
+
+
+$$
+z(t)=\alpha x(t)+\beta y(t) \underset{\longleftrightarrow}{\longleftarrow S}{\longrightarrow} \alpha a_{k}+\beta b_{k}
+$$
+
+#### Time-shift
+
+
+
+$$
+x\left(t-t_{0}\right) \stackrel{F S}{\longleftrightarrow} e^{-j k \omega_{0} t_{0}} a_{k}
+$$
+
+#### Time-reverse
+
+
+
+$$
+x(-t) \stackrel{F S}{\longleftarrow} a_{-k}
+$$
+
+#### Time-scaling
+
+
+
+$$
+x(\alpha t)=\sum_{k=-\infty}^{\infty} a_{k} e^{j k\left(\alpha \omega_{0}\right) t}
+$$
+
+#### Multiplication
+
+
+
+$$
+x(t) y(t) \underset{\longleftrightarrow}{\longleftrightarrow S}, h_{k}=\sum_{l=-\infty}^{\infty} a_{l} b_{k-1}
+$$
+
+which is **Convolution**
+
+#### conjugation & conjugate symmetry
+
+![](.gitbook/assets/image%20%2816%29.png)
+
+#### 7
+
+
+
+$$
+\frac{d x(t)}{d t} \longleftrightarrow F S, j k \omega_{0} a_{k}
+$$
+
+
+
+$$
+\int_{-\infty}^{t} x(\tau) d \tau \underset{\longleftrightarrow}{\text { FS }}, \frac{a_{k}}{j k \omega_{0}}
+$$
+
+#### Parseval's identity
+
+
+
+$$
+\frac{1}{T} \int_{T}|x(t)|^{2} d t=\sum_{k=-\infty}^{\infty}\left|a_{k}\right|^{2}
+$$
+
+Proof:
+
+
+
+$$
+\begin{aligned} \frac{1}{T} \int_{T}|x(t)|^{2} d t &=\frac{1}{T} \int_{T} \sum_{k_{1}, k_{2}} a_{k_{1}} a_{k_{2}}^{*} e^{j\left(k_{1}-k_{2}\right) \omega_{0} t} d t \\ &=\sum_{k_{1}, k_{2}} a_{k_{1}} a_{k_{2}}^{*} \delta\left[k_{1}-k_{2}\right] \\ &=\sum_{k}\left|a_{k}\right|^{2} \end{aligned}
+$$
+
+
+
+## Continuous-Time Fourier Transform \(CTFT\)
+
+### 变换与逆变换
+
+Fourier series: $$\begin{equation}  x(t)=\sum_{k=-\infty}^{\infty} a_{k} \mathrm{e}^{j k \omega_{0} t}  \end{equation}$$
+
+Inverse fourier transform: $$ x(t)=\frac{1}{2 \pi} \int_{\infty}^{\infty} X(j \omega) \mathrm{e}^{j \omega t} \mathrm{~d} \omega $$
+
+### Fourier Transform Pair
+
+Fourier Transform: $$ \begin{equation}  \mathcal{F}: X(j \omega)=\int_{-\infty}^{\infty} x(t) e^{-j \omega t} d t  \end{equation}$$
+
+* For periodic signals, $$ \begin{equation}  X(j \omega)=2 \pi \sum_{-\infty}^{\infty} a_{k} \delta\left(\omega-k \omega_{0}\right)  \end{equation}$$, i.e. the Fourier Series
+* $$ \begin{equation}  X(j \omega)  \end{equation}$$is called the "Spectrum" of $$ x(t)$$
+
+Inverse F.T.  $$ \begin{equation}  \mathcal{F}^{-1}: x(t)=\frac{1}{2 \pi} \int_{-\infty}^{\infty} X(j \omega) e^{j \omega t} d \omega  \end{equation}$$
+
+### Dual Porperty
+
+$$ \begin{equation}  \mathcal{F}(\mathcal{F}(x(t)))=2 \pi \cdot x(-t)  \end{equation}$$
+
+Means that when we put the $$ \begin{equation}  X(j \omega)  \end{equation}$$ in **time** domain, it will produce $$ 2\pi $$times $$ x(-t) $$ waveform in **freq** domain
+
+### Properties
+
+![](.gitbook/assets/image%20%2815%29.png)
+
+![](.gitbook/assets/image%20%2813%29.png)
+
+### Normal CT Fourier Pairs
+
+![](.gitbook/assets/image%20%2814%29.png)
+
+## 
 
 
 
