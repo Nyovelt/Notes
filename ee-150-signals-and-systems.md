@@ -50,6 +50,7 @@ $$ e^{j \omega0 t} = \cos ( \omega0 t ) + j \cdot \sin (\omega_0 t) $$
 * 只要基础频率 $$ \omega_0$$ 一样， 指数和三角函数可以互相转化
 * $$ \begin{equation} \mathrm{e}^{-\mathrm{j} \omega t}=\cos (\omega t)-\mathrm{j} \sin (\omega t) \end{equation} $$
 * $$ \begin{equation} \cos (\omega t)=\frac{1}{2}\left(\mathrm{e}^{\mathrm{j} \omega t}+\mathrm{e}^{-\mathrm{j} \omega t}\right) \end{equation} $$
+* $$ \begin{equation} \sin (\omega t)=\frac{1}{2 \mathrm{j}}\left(\mathrm{e}^{\mathrm{j} \omega t}-\mathrm{e}^{-\mathrm{j} \omega t}\right) \end{equation} $$
 
 ### Sin
 
