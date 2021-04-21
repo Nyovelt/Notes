@@ -178,7 +178,9 @@ $$ g(t)=\int \frac{d}{d t} x * h(t) d t=\ldots $$
 
 $$  \begin{equation}  g(t)=\frac{d}{d t} \int x * h(t) d t=\ldots  \end{equation}$$
 
+### 逆变换
 
+![](.gitbook/assets/image%20%2818%29.png)
 
 ## Eigen-function of L.T.I
 
