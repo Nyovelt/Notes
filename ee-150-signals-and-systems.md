@@ -89,11 +89,11 @@ $$ u[n] $$相当于 $$\delta[n]$$的积分
 * 
 ## Properties of System 
 
-### Memory / Memorylessx\`
+### Memory / Memoryless
 
 Output only depends on input **at the same time**
 
-### nvertibility and Inverse System
+### Invertibility and Inverse System
 
 Distinct **input** leads to distinct **output**
 
