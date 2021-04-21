@@ -76,6 +76,12 @@ $$ x(t) = A \cos (\omega _0 t + \phi )$$
 
 $$ u[n] $$相当于 $$\delta[n]$$的积分
 
+### 常见信号与周期判断
+
+### 功率与能量
+
+![](.gitbook/assets/image%20%2817%29.png)
+
 ### Other concepts
 
 * Energy and Power of Periodic Signals: 积分与积分后的处理
@@ -83,7 +89,7 @@ $$ u[n] $$相当于 $$\delta[n]$$的积分
 * 
 ## Properties of System 
 
-### Memory / Memoryless
+### Memory / Memorylessx\`
 
 Output only depends on input **at the same time**
 
