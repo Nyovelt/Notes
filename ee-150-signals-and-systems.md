@@ -356,7 +356,7 @@ Means that when we put the $$ \begin{equation}  X(j \omega)  \end{equation}$$ in
 
 ![](.gitbook/assets/image%20%2814%29.png)
 
-## 
+![](.gitbook/assets/image%20%2819%29.png)
 
 
 
