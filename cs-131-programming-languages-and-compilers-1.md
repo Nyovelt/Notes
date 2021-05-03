@@ -38,7 +38,11 @@ A **Language** is a set of Strings over a fixed **Alphabet** $$\Sigma$$, constru
 * Not all Strings of chars in the Alphabet is in the certain Language, only those who satisfy the Grammar rules.
 * Alphabet $$ ={0,1} $$ and using Grammar rule  $$ \mathrm{RE}=01^{*}$$ , we can specify the above example Language, while $$ 01 $$ isn't.
 
-![](.gitbook/assets/image%20%2823%29.png)
+Below is **Operations** and **Examples**.
+
+![Operations of Languages](.gitbook/assets/image%20%2823%29.png)
+
+![Example of Laguage Operations](.gitbook/assets/image%20%2827%29.png)
 
 A **Grammar** $$G$$ ****is the description of method （_rules_） of how to construct a certain Language over a certain Alphabet
 
@@ -64,7 +68,7 @@ Reads the source program character by character and returns the **tokens** of th
 * 利用有限自动机来分析 Token 以完成词法分析
 * 词法分析器 = 读入（scanning） + 词法分析（lexical analysis）
 
-![Lexical Analyzer](.gitbook/assets/image%20%2825%29.png)
+![Lexical Analyzer](.gitbook/assets/image%20%2831%29.png)
 
 ### Token
 
@@ -78,9 +82,29 @@ A **Lexeme （词素）** is an instance of a Token, along with its unique attri
   * INT 
   * Token.value = 17
 
-![Process of determing a Token &#x901A;&#x5E38;&#x4F7F;&#x7528;&#x53CC; buffers &#x6765;&#x907F;&#x514D; buffer &#x533A;&#x592A;&#x5C0F;&#x7684;&#x95EE;&#x9898;](.gitbook/assets/image%20%2824%29.png)
+![Process of determing a Token &#x901A;&#x5E38;&#x4F7F;&#x7528;&#x53CC; buffers &#x6765;&#x907F;&#x514D; buffer &#x533A;&#x592A;&#x5C0F;&#x7684;&#x95EE;&#x9898;](.gitbook/assets/image%20%2830%29.png)
 
 ### Regular Expression （正则表达式）
+
+我们利用**正则表达式**来 描述 **Tokens** 匹配 **Tokens**
+
+* 每个**正则表达式** $$r$$ 描述一个语言 $$L(r)$$
+  * $$r$$被叫做 **regular set**
+* **正则表达式**是左结合的，从左向右匹配的
+* **正则表达式**是一个 **Type-3 Grammar Rule**
+
+#### **Properties**
+
+![Properties](.gitbook/assets/image%20%2826%29.png)
+
+![Extended Properties](.gitbook/assets/image%20%2828%29.png)
+
+* e.g.
+  * Integers:
+    * Digit = \[0-9\]\*
+    * Integer = Digit Digit\*
+
+
 
 ### Finite Automata （有限自动机）
 
