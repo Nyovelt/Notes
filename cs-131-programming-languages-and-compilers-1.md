@@ -73,7 +73,18 @@ Describes a pattern of characters having some meaning in the source program \(su
 
 ### Top-Down Parsers
 
+Construction of the parse tree starts at the root, and proceeds towards the leaves.
+
+* Recursive Predictive Parsing
+* Non-Recursive Predictive Parsing （**LL Parsing**）. （**L**-left to right; **L**-leftmost derivation）
+* 语法构架能力弱
+
 ### Bottom-Up Parsers
+
+Construction of the parse tree starts at the leaves, and proceeds towards the root.
+
+* Bottom-up parsing is also known as **shift-reduce parsing**
+* **LR Parsing** – much general form of shift-reduce parsing: **LR**, **SLR**, **LALR** \(**L**-left to right; **R**-rightmost derivation\)
 
 ### Other Issues for Parsers
 
