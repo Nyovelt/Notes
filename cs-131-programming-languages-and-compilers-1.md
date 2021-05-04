@@ -338,11 +338,34 @@ Performance of DFA-type Recognizers: Space $$O(|2^{|r|})$$; Time $$O(|s|)$$
 
 #### Convert NFA to DFA
 
-Algorithm is called Subset Construction, since we make subset of States in original NFA into a single State in resultingDFA
+Algorithm is called **Subset Construction\(子集构造法\)**, since we make subset of States in original NFA into a single State in resulting DFA
 
+```c
+void subsetConstruction() {
+    S0=epsClosure({s0});
+    DStates= {(S0, unmarked)};
+    while (DStates has any unmarked State U) {
+        MarkState U;
+        for (each possible inputchar c) {
+            V=epsClosure(move(U, c));
+            if (V is not empty) {
+                if (V is not in DStates)
+                    Include V in DStates, unmarked;
+                Add the Transition U--c->V;
+            }
+        }
+    }
+}
+```
 
+* A State $$S$$ in resulting DFA is an Accepting State iff $$ \exists s \in S, s$$ is an Accepting State in original NFA
+* Start State of the resulting DFA is $$S_0$$
 
 ### Minimize DFA
+
+```c
+void minimize() {
+```
 
 ### Other Issues for Lexers
 
