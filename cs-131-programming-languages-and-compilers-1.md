@@ -4,7 +4,7 @@ description: ShanghaiTech University - Spring 2021
 
 # CS 131: Programming Languages and Compilers
 
-## Introduction
+## Convert NFA to DFAIntroduction
 
 ![Compiler](.gitbook/assets/image%20%2822%29.png)
 
@@ -42,7 +42,7 @@ Below is **Operations** and **Examples**.
 
 ![Operations of Languages](.gitbook/assets/image%20%2823%29.png)
 
-![Example of Laguage Operations](.gitbook/assets/image%20%2828%29.png)
+![Example of Laguage Operations](.gitbook/assets/image%20%2830%29.png)
 
 A **Grammar** $$G$$ ****is the description of method （_rules_） of how to construct a certain Language over a certain Alphabet
 
@@ -68,7 +68,7 @@ Reads the source program character by character and returns the **tokens** of th
 * 利用有限自动机来分析 Token 以完成词法分析
 * 词法分析器 = 读入（scanning） + 词法分析（lexical analysis）
 
-![Lexical Analyzer](.gitbook/assets/image%20%2834%29.png)
+![Lexical Analyzer](.gitbook/assets/image%20%2837%29.png)
 
 ### Token
 
@@ -82,7 +82,7 @@ A **Lexeme （词素）** is an instance of a Token, along with its unique attri
   * INT 
   * Token.value = 17
 
-![Process of determing a Token &#x901A;&#x5E38;&#x4F7F;&#x7528;&#x53CC; buffers &#x6765;&#x907F;&#x514D; buffer &#x533A;&#x592A;&#x5C0F;&#x7684;&#x95EE;&#x9898;](.gitbook/assets/image%20%2833%29.png)
+![Process of determing a Token &#x901A;&#x5E38;&#x4F7F;&#x7528;&#x53CC; buffers &#x6765;&#x907F;&#x514D; buffer &#x533A;&#x592A;&#x5C0F;&#x7684;&#x95EE;&#x9898;](.gitbook/assets/image%20%2836%29.png)
 
 ### Regular Expression （正则表达式）
 
@@ -95,9 +95,9 @@ A **Lexeme （词素）** is an instance of a Token, along with its unique attri
 
 #### **Properties**
 
-![Properties](.gitbook/assets/image%20%2826%29.png)
+![Properties](.gitbook/assets/image%20%2827%29.png)
 
-![Extended Properties](.gitbook/assets/image%20%2829%29.png)
+![Extended Properties](.gitbook/assets/image%20%2831%29.png)
 
 * e.g.
   * Integers:
@@ -113,7 +113,7 @@ A **Lexeme （词素）** is an instance of a Token, along with its unique attri
 
 #### Transition Diagram
 
-![Transition Disgram Examples](.gitbook/assets/image%20%2837%29.png)
+![Transition Disgram Examples](.gitbook/assets/image%20%2840%29.png)
 
 当一个 Token 被识别：
 
@@ -145,7 +145,7 @@ We call the recognizer of the tokens as a **finite automaton**.
 
 **Example**
 
-![Regular expression: \(a+b\)\*abb](.gitbook/assets/image%20%2827%29.png)
+![Regular expression: \(a+b\)\*abb](.gitbook/assets/image%20%2828%29.png)
 
 * **Start Arrow**
 * **State**
@@ -201,13 +201,146 @@ One Token, A _Recognizer. There are 4 ways. \(r stands for RE\)_
 3. $$ r \to DFA \to Recognizer$$
 4. $$ r \rightsquigarrow DFA \to Minimized ~ DFA \to Recognizer$$
 
-
-
-\_\_
-
 ### RE to NFA
 
+Algorithm is called **Thompson's Construction**.
+
+![](.gitbook/assets/image%20%2834%29.png)
+
+There are some requirements on such construction:
+
+* $$N(s)$$and $$N(t)$$CANNOT have any intersections
+* REMEMBER to assign unique names to all states
+
+Properties of the resulting NFA:
+
+* Exactly 1 Start State & 1 Accepting State
+* $$#$$ of States in NFA  $$\leq 2 \times$$\(\# of Symbols + \# of Operators\) in $$r$$
+* States do not have multiple outgoing edges with the same input symbol
+* States have at most 2 outgoing $$\epsilon$$ edges
+
 ### RE to DFA
+
+**\[Step 1\]**: We make Augmented RE: concatenate with symbol \# \(meaning "finish"\).
+
+* e.g. \(a+b\)\*a\#
+* Ensures at least one operator in the RE
+
+**\[Step 2\]:** Build syntax tree for this Augmented RE:
+
+![](.gitbook/assets/image%20%2829%29.png)
+
+* $$\epsilon$$, \# and $$a \in \Sigma$$ all are at leaves
+* All other operators are inner nodes
+* Non-$$\epsilon$$ leaves get its position number, increasing from left $$\to$$ right
+
+**\[Step 3\]:** Compute `nullable()`, `firstpos()` & `lastpos()` for ALL nodes.
+
+1. `firstpos(n)`: Function returning the set of positions where the _first_ Symbol can be at, in the _sub-RE_ rooted at `n`
+2. `lastpos(n)`: Function returning the set of Positions where the _last_ Symbol can be at, in the sub-RE rooted at `n`
+3. `nullable(n)`: Function judging whether the _sub-RE_ rooted at `n` can generate $$\epsilon$$
+
+![](.gitbook/assets/image%20%2825%29.png)
+
+**\[Step 4\]:** Compute `followpos()` for Leaf positions
+
+`followpos(i)`: Function returning the set of positions _which can follow_ position i in the generated String
+
+Conduct a _Post-order_ _Depth First Traversal_ on the syntax tree, and do the following oprations when leaving $$\cdot$$ / \* nodes:
+
+* $$ c{1} \cdot c{2}: $$ For all $$ i \in $$ `lastpos(c1)` , `followpos(i)`= `followpo(i)`  $$\cup $$ `firstpos(c2)`
+* $$  c^{*}:$$  For all $$ i \in $$ `lastpos(c)`, `followpos(i)`$$= $$ `followpos(i)` $$\cup $$ `firstpos(c)`
+
+**\[Step 5\]:** Construct the DFA.
+
+```c
+void construct() {
+    S0=firstpos(root);
+    DStates= {(S0, unmarked)};
+    while (DStates has an unmarked State U) {
+        Mark State U;
+        for (each possible input char c) 
+        {
+            V= {};
+            for (each position p in U whose symbol is c)
+                V=UnionofVandfollowpos(p);
+            if (V is not empty) {
+                if (V is not in DStates)
+                    Include V in DStates, unmarked;
+                Add the Transition U--c->V;
+            }
+        }
+    }
+}
+```
+
+* A State $$S$$in resulting DFA is an Accepting State iff \# node $$\in S $$
+* Start State of the resulting DFA is $$S_0$$
+
+#### Calculate $$\epsilon$$-Closure
+
+```c
+set epsClosure(set S) 
+{
+        for (each State s in S)
+            Push s onto stack;
+        closure = S;
+        while (stack is not empty) 
+        {
+        Pop State u;
+        for (each State v that u->v is an epsilon Transition) 
+        {
+              if (v is not in closure) 
+              {
+                  Include v in closure;
+                  Push v onto stack;            
+              }
+         }    
+         }
+         return closure;
+ }
+
+```
+
+#### Implement NFA as Recognizer
+
+```c
+bool  recognizer() {
+    S=epsClosure(s0);
+    while ((c=getchar()) !=EOF)
+        S=epsClosure(move(S, c));
+    if (S and F has intersections)
+        return ACCEPT;
+    return REJECT;
+}
+```
+
+{% hint style="info" %}
+Performance of NFA-type Recognizers: Space $$O(|r|)$$; Time $$O(|r| \times |s|)$$
+{% endhint %}
+
+#### Implement DFA as Recognizer
+
+```c
+bool recognizer() {
+    s=s_0;
+    while ((c=getchar()) !=EOF)
+        s=move(s, c);
+    if (s is in F)
+        return ACCEPT;
+    return REJECT;
+}
+```
+
+{% hint style="info" %}
+Performance of DFA-type Recognizers: Space $$O(|2^{|r|})$$; Time $$O(|s|)$$
+{% endhint %}
+
+#### Convert NFA to DFA
+
+Algorithm is called Subset Construction, since we make subset of States in original NFA into a single State in resultingDFA
+
+
 
 ### Minimize DFA
 
