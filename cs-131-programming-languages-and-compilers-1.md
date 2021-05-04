@@ -4,7 +4,7 @@ description: ShanghaiTech University - Spring 2021
 
 # CS 131: Programming Languages and Compilers
 
-## Convert NFA to DFAIntroduction
+## Introduction
 
 ![Compiler](.gitbook/assets/image%20%2822%29.png)
 
