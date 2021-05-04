@@ -194,6 +194,17 @@ No $$\epsilon$$-closure !!!
 
 ### Implementation of Lexers
 
+One Token, A _Recognizer. There are 4 ways. \(r stands for RE\)_
+
+1.  $$r \to NFA \to Recognizer$$
+2. $$ r \to  NFA \to DFA \to Recognizer$$
+3. $$ r \to DFA \to Recognizer$$
+4. $$ r \rightsquigarrow DFA \to Minimized ~ DFA \to Recognizer$$
+
+
+
+\_\_
+
 ### RE to NFA
 
 ### RE to DFA
