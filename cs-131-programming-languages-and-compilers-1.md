@@ -42,7 +42,7 @@ Below is **Operations** and **Examples**.
 
 ![Operations of Languages](.gitbook/assets/image%20%2823%29.png)
 
-![Example of Laguage Operations](.gitbook/assets/image%20%2827%29.png)
+![Example of Laguage Operations](.gitbook/assets/image%20%2828%29.png)
 
 A **Grammar** $$G$$ ****is the description of method （_rules_） of how to construct a certain Language over a certain Alphabet
 
@@ -68,7 +68,7 @@ Reads the source program character by character and returns the **tokens** of th
 * 利用有限自动机来分析 Token 以完成词法分析
 * 词法分析器 = 读入（scanning） + 词法分析（lexical analysis）
 
-![Lexical Analyzer](.gitbook/assets/image%20%2831%29.png)
+![Lexical Analyzer](.gitbook/assets/image%20%2834%29.png)
 
 ### Token
 
@@ -82,7 +82,7 @@ A **Lexeme （词素）** is an instance of a Token, along with its unique attri
   * INT 
   * Token.value = 17
 
-![Process of determing a Token &#x901A;&#x5E38;&#x4F7F;&#x7528;&#x53CC; buffers &#x6765;&#x907F;&#x514D; buffer &#x533A;&#x592A;&#x5C0F;&#x7684;&#x95EE;&#x9898;](.gitbook/assets/image%20%2830%29.png)
+![Process of determing a Token &#x901A;&#x5E38;&#x4F7F;&#x7528;&#x53CC; buffers &#x6765;&#x907F;&#x514D; buffer &#x533A;&#x592A;&#x5C0F;&#x7684;&#x95EE;&#x9898;](.gitbook/assets/image%20%2833%29.png)
 
 ### Regular Expression （正则表达式）
 
@@ -97,20 +97,100 @@ A **Lexeme （词素）** is an instance of a Token, along with its unique attri
 
 ![Properties](.gitbook/assets/image%20%2826%29.png)
 
-![Extended Properties](.gitbook/assets/image%20%2828%29.png)
+![Extended Properties](.gitbook/assets/image%20%2829%29.png)
 
 * e.g.
   * Integers:
     * Digit = \[0-9\]\*
     * Integer = Digit Digit\*
-
-
+  * Identifier
+    * letter = \[a-zA-Z\]
+    * identifier = letter （letter + digit）\*
+  * Whitespace
+    * WS = \('\n' + '\t' + ' '\)+
 
 ### Finite Automata （有限自动机）
 
+#### Transition Diagram
+
+![Transition Disgram Examples](.gitbook/assets/image%20%2837%29.png)
+
+当一个 Token 被识别：
+
+* 如果是关键字，那么会返回 **Token of the keyword**
+* 如果是符号表里的 ID，那么返回 **entry of symbol table**
+* 如果符号表没有这个ID，那么加入ID并返回新的 **entry of symbol table**
+
+```c
+switch (state){
+case 0:
+    c = nextchar();
+    if (c == [something])
+        state = [state], lexeme_beginning ++;
+    else if (c == [something])
+        [do something]
+    else if (c == [final state]) // terminal
+        retract(1); //forward
+        lexical_value = install_num(); // install something 
+        return (NUM);
+    else
+        state = fail();
+```
+
+#### Finite automata
+
+A **recognizer** for a language is a program that takes a string x, and answers “yes” if x is a sentence of that language, and “no” otherwise.
+
+We call the recognizer of the tokens as a **finite automaton**.
+
+**Example**
+
+![Regular expression: \(a+b\)\*abb](.gitbook/assets/image%20%2827%29.png)
+
+* **Start Arrow**
+* **State**
+* **Transition Edge**
+* **Accepting State**:同心圆，接受并结束，状态3
+* **Death State:错误**状态，未定义的 transition 指向该状态
+* Transition table:
+
+| state | a | b |
+| :--- | :--- | :--- |
+| 0 | {0,1} | {0} |
+| 1 | -- | {2} |
+| 2 | -- | {3} |
+
 ### NFA
 
+Non-Deterministic Finite Automata （NFAs） **easily** represent regular expression, but are **less precise.** 
+
+**Accept s:** an Accepting State that spells out **s**.
+
+An NFA is a mathematical model that consists of:
+
+* S, a **finite** set of **states**
+* $$\Sigma$$, the symbols of the **input alphabet**
+* _move_, a **transition function**
+  * move\(state, symbol\) $$\to$$ sets of states
+* A state $$s_0 \in S$$, the **start state**
+* $$F \subseteq S  $$, a set of **final** or **accepting states**
+* $$ \epsilon$$**move: ε- transitions** are allowed in NFAs. In other words, we can move from one state to another one without consuming any symbol
+
+{% hint style="info" %}
+The $$\epsilon$$-Closure of $$S = S \cup \{ $$ All States that can go to without consuming any input $$\}$$
+{% endhint %}
+
 ### DFA 
+
+Deterministic Finite Automata （DFAs） require **more complexity** to represent regular expressions but offer **more precision**.
+
+**Does not allow** $$ \epsilon$$**move,**  for every $$s \in S$$, there is ONLY ONE decision for every input _Symbol._
+
+**Accept s:** an Accepting State that spells out **s** _and **ONLY and ONLY ONE** path_.
+
+{% hint style="info" %}
+No $$\epsilon$$-closure !!!
+{% endhint %}
 
 ### Implementation of Lexers
 
