@@ -365,7 +365,24 @@ void subsetConstruction() {
 
 ```c
 void minimize() {
+    PI = {G_A, G_n};
+    do {
+        for (every group G in PI){
+            for (every pair of States (s,t) in G){
+                if (for every possible input char c, transition s--c -> and t--c-> go to states in the same group)
+                    s,t are in the same subgroup;
+                else
+                    s,t should split into different subgroups;
+            }
+            Split G according to the above information;
+        }
+    }while (PI changed in this iteration)
+    Every Group in PI is a state in the minimal DFA;
+}  
 ```
+
+* A State S in the minimal DFA is an Accepting State iff $$ \exists s \in S $$, s is an Accepting State in original DFA
+* Start State of the minimal DFA is the one containing original Starting State
 
 ### Other Issues for Lexers
 
@@ -404,6 +421,13 @@ Construction of the parse tree starts at the leaves, and proceeds towards the ro
 * **LR Parsing** – much general form of shift-reduce parsing: **LR**, **SLR**, **LALR** \(**L**-left to right; **R**-rightmost derivation\)
 
 ### Other Issues for Parsers
+
+
+
+## Thanks
+
+* \[Guanzhou HU's Notes\]\([https://www.josehu.com/](https://www.josehu.com/)\)
+* TAs: 季杨彪, 杨易为, 尤存翰
 
 
 
