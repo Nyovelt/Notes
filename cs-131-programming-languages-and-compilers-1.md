@@ -57,8 +57,6 @@ Expressiveness: Type 0 &gt; Type 1 &gt; Type 2 &gt; Type 3
 
 ### Phases
 
-
-
 ## Lexical Analyzer （词法分析器）
 
 Reads the source program character by character and returns the **tokens** of the source program
