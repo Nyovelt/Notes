@@ -106,6 +106,9 @@ A **Lexeme （词素）** is an instance of a Token, along with its unique attri
     * identifier = letter （letter + digit）\*
   * Whitespace
     * WS = \('\n' + '\t' + ' '\)+
+* Examples
+  * Even Binary number 
+    * 1\[0+1\]\*0 \| 0
 
 ### Finite Automata （有限自动机）
 
@@ -157,6 +160,10 @@ We call the recognizer of the tokens as a **finite automaton**.
 | 0 | {0,1} | {0} |
 | 1 | -- | {2} |
 | 2 | -- | {3} |
+
+{% hint style="info" %}
+注意 empty string 可以被某些自动机接收
+{% endhint %}
 
 ### NFA
 
