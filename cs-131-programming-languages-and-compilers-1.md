@@ -386,6 +386,12 @@ void minimize() {
 
 ### Other Issues for Lexers
 
+#### Look ahead
+
+#### Comment Skip
+
+#### Symbol Table
+
 ## Syntax Analyzer （句法分析）
 
 如果说词法分析这一步提供了可供计算机识别的**词**，那么句法分析是为了理解句子结构。
