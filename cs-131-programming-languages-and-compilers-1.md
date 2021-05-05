@@ -412,6 +412,8 @@ void minimize() {
 
 ### Parse Tree Abstraction
 
+A Parse Tree / Syntax Tree \(语法树\) is a graphical representation of the structure of a program, where leaf nodes are Tokens.
+
 ### CFG （上下文无关文法）
 
 ### Derivation Directions（派生文法）&Ambiguity（二义性）
