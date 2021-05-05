@@ -418,7 +418,7 @@ A **Parse Tree / Syntax Tree \(语法树\)** is a graphical representation of th
 
 A **Context-free Grammar \(CFG\)** is a **Type-2** Grammar rule, which serves the construction of a Parse Tree from a streamof Tokens. We use a set of Production Rules to characterize a CFG
 
-![](.gitbook/assets/image%20%2841%29.png)
+![](.gitbook/assets/image%20%2842%29.png)
 
 A **Terminal \(终结符号\)** is a Token; A **Non-terminal \(非终结符号\)** is a syntactic variable.
 
@@ -476,7 +476,7 @@ $$ A \Rightarrow^{+} A_{\alpha} $$: Left Recursion
 
 For _Immediate_ Left Recursions \(Left Recursion that may appear in a single step\), eliminate by:
 
-![&#x7ACB;&#x5373;&#x5DE6;&#x9012;&#x5F52;&#x7684;&#x6D88;&#x9664;](.gitbook/assets/image%20%2842%29.png)
+![&#x7ACB;&#x5373;&#x5DE6;&#x9012;&#x5F52;&#x7684;&#x6D88;&#x9664;](.gitbook/assets/image%20%2843%29.png)
 
 ```c
 /* Non-terminals arranged in order: A1, A2, ... An. */
@@ -514,6 +514,20 @@ bool T() {
 ```
 
 #### Left Factoring: Produce LL\(1\) Grammar
+
+LL\(1\) means Only 1 Token Look-ahead ensures which Pruduction Rule to expand now.
+
+To convert LL\(1\)  to a CFG, for each Non-terminal :
+
+![](.gitbook/assets/image%20%2841%29.png)
+
+{% hint style="info" %}
+\|\| LL\(1\) \|\| &lt; \|\| CFG \|\|, so not all Grammar can be convert to LL\(1\)
+
+* Such Grammar will have an entry with multiple Production Rules to use in the Parsing Table, thusWill be inappropriate for Predictive Parsing
+{% endhint %}
+
+
 
 ### Bottom-Up Parsers
 
