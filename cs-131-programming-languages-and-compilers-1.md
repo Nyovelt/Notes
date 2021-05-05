@@ -282,7 +282,7 @@ void construct() {
 * A State $$S$$in resulting DFA is an Accepting State iff \# node $$\in S $$
 * Start State of the resulting DFA is $$S_0$$
 
-#### Calculate $$\epsilon$$-Closure
+#### Calculate \epsilon-Closure
 
 ```c
 set epsClosure(set S) 
