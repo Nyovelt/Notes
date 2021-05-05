@@ -527,7 +527,23 @@ To convert LL\(1\)  to a CFG, for each Non-terminal :
 * Such Grammar will have an entry with multiple Production Rules to use in the Parsing Table, thusWill be inappropriate for Predictive Parsing
 {% endhint %}
 
+#### Implementing Recursive Predictive Parsing
 
+{% hint style="info" %}
+This part stongly suggest to see  [https://www.josehu.com/assets/file/compilers.pdf](https://www.josehu.com/assets/file/compilers.pdf) for better understanding.
+{% endhint %}
+
+#### Parsing Table Construction
+
+{% hint style="info" %}
+This part stongly suggest to see  [https://www.josehu.com/assets/file/compilers.pdf](https://www.josehu.com/assets/file/compilers.pdf) for better understanding.
+{% endhint %}
+
+#### Implementing LL\(1\) Parsing
+
+{% hint style="info" %}
+This part stongly suggest to see  [https://www.josehu.com/assets/file/compilers.pdf](https://www.josehu.com/assets/file/compilers.pdf) for better understanding.
+{% endhint %}
 
 ### Bottom-Up Parsers
 
@@ -536,11 +552,9 @@ Construction of the parse tree starts at the leaves, and proceeds towards the ro
 * Bottom-up parsing is also known as **shift-reduce parsing**
 * **LR Parsing** – much general form of shift-reduce parsing: **LR**, **SLR**, **LALR** \(**L**-left to right; **R**-rightmost derivation\)
 
-### Other Issues for Parsers
-
-
-
-
+{% hint style="info" %}
+This part stongly suggest to see  [https://www.josehu.com/assets/file/compilers.pdf](https://www.josehu.com/assets/file/compilers.pdf) for better understanding.
+{% endhint %}
 
 ## Thanks
 
