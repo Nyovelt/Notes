@@ -461,6 +461,60 @@ Construction of the parse tree starts at the root, and proceeds towards the leav
 * Non-Recursive Predictive Parsing （**LL Parsing**）. （**L**-left to right; **L**-leftmost derivation）
 * 语法构架能力弱
 
+#### Implement
+
+1. Eliminate Left Recursion $$\to$$ Recursive-descent Parsing
+2. Eliminate Left Recursion $$\to$$ Left Factoring $$\to$$Recursive Predictive Parsing
+3. Eliminate Left Recursion $$\to$$Left Factoring $$\to$$Construct Parsing Table $$\to$$Non-recursive Predictive Parsing
+
+#### Left Recursion Elimination \(消除左递归\)
+
+$$ A \Rightarrow^{+} A_{\alpha} $$: Left Recursion
+
+* Top Down Parsing **CANNOT** handle Left-recursive Grammars
+* Can be eliminated by rewriting
+
+For _Immediate_ Left Recursions \(Left Recursion that may appear in a single step\), eliminate by:
+
+![&#x7ACB;&#x5373;&#x5DE6;&#x9012;&#x5F52;&#x7684;&#x6D88;&#x9664;](.gitbook/assets/image%20%2842%29.png)
+
+```c
+/* Non-terminals arranged in order: A1, A2, ... An. */
+void eliminate() 
+{
+    for (i from 1 to n) {
+        for (j from 1 to i-1)
+            Replace Aj with its products in every Prodcution Rule Ai->Aj ...;
+        Eliminate Immediate Left Recursions Ai->Ai ...;    
+    }
+}
+```
+
+#### Implementing Recursive-descent Parsing
+
+```c
+/*  Example:
+*    E -> T | T + E*    
+     T -> int | int * T | ( E )
+*/
+bool term(TOKENtok)  { return*ptr++==tok; }
+bool E1()             { returnT(); }
+bool E2()             { returnT() &&term(PLUS) &&E(); }
+bool E() {
+     TOKEN*save=ptr;
+     return (ptr=save, E1()) || (ptr=save, E2());
+}
+bool T1()             { returnterm(INT); }
+bool T2()             { returnterm(INT) &&term(TIMES) &&T(); }
+bool T3()             { returnterm (OPEN) &&E() &&term(CLOSE); }
+bool T() {
+     TOKEN*save=ptr;
+     return (ptr=save, T1()) || (ptr=save, T2()) || (ptr=save, T3());
+}
+```
+
+#### Left Factoring: Produce LL\(1\) Grammar
+
 ### Bottom-Up Parsers
 
 Construction of the parse tree starts at the leaves, and proceeds towards the root.
@@ -469,6 +523,8 @@ Construction of the parse tree starts at the leaves, and proceeds towards the ro
 * **LR Parsing** – much general form of shift-reduce parsing: **LR**, **SLR**, **LALR** \(**L**-left to right; **R**-rightmost derivation\)
 
 ### Other Issues for Parsers
+
+
 
 
 
