@@ -412,11 +412,46 @@ void minimize() {
 
 ### Parse Tree Abstraction
 
-A Parse Tree / Syntax Tree \(语法树\) is a graphical representation of the structure of a program, where leaf nodes are Tokens.
+A **Parse Tree / Syntax Tree \(语法树\)** is a graphical representation of the structure of a program, where leaf nodes are Tokens.
 
 ### CFG （上下文无关文法）
 
+A **Context-free Grammar \(CFG\)** is a **Type-2** Grammar rule, which serves the construction of a Parse Tree from a streamof Tokens. We use a set of Production Rules to characterize a CFG
+
+![](.gitbook/assets/image%20%2841%29.png)
+
+A **Terminal \(终结符号\)** is a Token; A **Non-terminal \(非终结符号\)** is a syntactic variable.
+
+* The Start Symbol is the first one of Non-terminals; Usually represents the whole program
+* A Sentence is a string of Terminals such that Start Symbol $$ S \Rightarrow{ }^{+} s $$
+
+A **Production Rule \(生成规则\)** is a law of production, from a Non-terminal to a sequence of Terminals & Non-terminals.
+
+* e.g. $$ A \rightarrow \alpha A \mid \beta $$, where $$ A $$ is a Non-terminal and $$ \alpha, \beta $$ are Terminals
+* May be _recursive_
+* The procedure of applying these rules to get a sentence of Terminals is called **Sentential Form** / **Derivation**
+
+{% hint style="info" %}
+$$ | $$ Context-free Languages $$ |>| $$ Regular Languages $$ | $$, e.g. $$ \{(^{i})^{i}: i  \geq  0 \} $$.
+{% endhint %}
+
 ### Derivation Directions（派生文法）&Ambiguity（二义性）
+
+**Left-most Derivation**  **\(左递归\)**$$ \left(\Rightarrow_{l m}\right) $$ means to replace the leftmost Non-terminal at each step.
+
+* If $$ \beta A \gamma \Rightarrow \operatorname{lm} \beta \delta \gamma $$, then NO Non-terminals in $$ \mathcal{\beta} $$
+* Corresponds to _Top Down Parsing_
+
+**Right-most Derivation**  $$ (\Rightarrow r m) $$means Replace the rightmost Non-terminal at each step.
+
+* If $$ \beta A \gamma \Rightarrow_{r m} \beta \delta \gamma $$, then NO Non-terminals in $$ \gamma $$
+* Corresponds to _Bottom Up Parsing_, in reversed manner
+
+A CFG is **Ambiguous** when it produces more than one Parse Tree for the same sentence. Must remove Ambiguity for apractical CFG, by:
+
+* Enforce _Precedence \(优先级\)_ and _Associativity \(结合律\)_
+  *  e.g. $$  * > +$$ , then $$ + $$ gets expanded first
+* Grammar Rewritten
 
 ### Top-Down Parsers
 
