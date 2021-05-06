@@ -57,6 +57,8 @@ Expressiveness: Type 0 &gt; Type 1 &gt; Type 2 &gt; Type 3
 
 ### Phases
 
+![](.gitbook/assets/image%20%2846%29.png)
+
 ## Lexical Analyzer （词法分析器）
 
 Reads the source program character by character and returns the **tokens** of the source program
@@ -447,11 +449,15 @@ $$ | $$ Context-free Languages $$ |>| $$ Regular Languages $$ | $$, e.g. $$ \{(^
 * If $$ \beta A \gamma \Rightarrow_{r m} \beta \delta \gamma $$, then NO Non-terminals in $$ \gamma $$
 * Corresponds to _Bottom Up Parsing_, in reversed manner
 
+![](.gitbook/assets/image%20%2847%29.png)
+
 A CFG is **Ambiguous** when it produces more than one Parse Tree for the same sentence. Must remove Ambiguity for apractical CFG, by:
 
 * Enforce _Precedence \(优先级\)_ and _Associativity \(结合律\)_
   *  e.g. $$  * > +$$ , then $$ + $$ gets expanded first
 * Grammar Rewritten
+
+![](.gitbook/assets/image%20%2844%29.png)
 
 ### Top-Down Parsers
 
@@ -489,6 +495,8 @@ void eliminate()
     }
 }
 ```
+
+![&#x5DE6;&#x9012;&#x5F52;&#x7684;&#x6D88;&#x9664;](.gitbook/assets/image%20%2845%29.png)
 
 #### Implementing Recursive-descent Parsing
 
