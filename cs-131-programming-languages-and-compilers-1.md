@@ -57,7 +57,7 @@ Expressiveness: Type 0 &gt; Type 1 &gt; Type 2 &gt; Type 3
 
 ### Phases
 
-![](.gitbook/assets/image%20%2846%29.png)
+![](.gitbook/assets/image%20%2849%29.png)
 
 ## Lexical Analyzer （词法分析器）
 
@@ -540,6 +540,8 @@ To convert LL\(1\)  to a CFG, for each Non-terminal :
 {% hint style="info" %}
 This part stongly suggest to see  [https://www.josehu.com/assets/file/compilers.pdf](https://www.josehu.com/assets/file/compilers.pdf) for better understanding.
 {% endhint %}
+
+![](.gitbook/assets/image%20%2846%29.png)
 
 #### Parsing Table Construction
 
