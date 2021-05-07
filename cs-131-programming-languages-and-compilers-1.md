@@ -566,6 +566,10 @@ Construction of the parse tree starts at the leaves, and proceeds towards the ro
 This part stongly suggest to see  [https://www.josehu.com/assets/file/compilers.pdf](https://www.josehu.com/assets/file/compilers.pdf) for better understanding.
 {% endhint %}
 
+## IR
+
+
+
 ## Thanks
 
 * \[Guanzhou HU's Notes\]\([https://www.josehu.com/](https://www.josehu.com/)\)
