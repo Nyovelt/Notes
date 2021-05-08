@@ -351,12 +351,30 @@ Datapath Stage 需要时间, 下表列出了各个指令对应的 Datapath Stage
     - Solution2: Forwarding / Bypassing (搭桥)
       - ![SCFW6e](https://oss.aaaab3n.moe/uPic/SCFW6e.png)
       - 注意在 Time 600 附近的蓝色连线 
+    - Load:
+      - Stall & 交换顺序
+      - ![k9N2FI](https://oss.aaaab3n.moe/uPic/k9N2FI.jpg)
 - Control
   - Flow of execution depends on previous instruction 
+  - ![NHPqk5](https://oss.aaaab3n.moe/uPic/NHPqk5.png)
+  - Every taken branch in simple pipeline costs 2 dead cycles 
+  - To improve performance, use “branch prediction (分支预测)” to guess which way branch will go earlier in pipeline 
+  - Only flush pipeline if branch prediction was incorrect 
+  - 分支预测: ![x4o73r](https://oss.aaaab3n.moe/uPic/x4o73r.jpg)
+    - 如果这个分支之前走过: 计算 `PC + offset` 然后走
+    - 如果没有, 继续 `PC + 4 `
+    - 如果这个分支以前没有见到过: 假设不采用前向分支(forward branches)，采用后向分支(backword branches)
+    - 最终计算时，使用分支结果更新预测变量上的状态
 
+####  Summary:
 
-
-
+- 流水线通过重叠执行多条指令来提高吞吐量
+- 所有流水线阶段具有相同的持续时间
+  - 选择适合此限制的部分
+- Hazards 可能会减少性能
+  - 加速加速加速
+- SuperScalar Processors 将多个执行单元用于额外的指令级并行性
+  - 性能优势与代码高度相关
 
 #### REF
 
