@@ -31,7 +31,7 @@ description: ShanghaiTech University - Spring 2021
 
 ## Numbers
 
-#### 整数
+### 整数
 
 * Everything in a computer is a number, in fact only 0 and 1.
 * Integers are interpreted by adhering to fixed length
@@ -57,7 +57,7 @@ description: ShanghaiTech University - Spring 2021
 * ref:
 * [About MSB and Overflow: ](https://stackoverflow.com/questions/29330787/signed-overflow-why-carry-in-and-carry-out-of-msb-should-match)
 
-#### IEEE 754 - 计算机数字标准表示
+### IEEE 754 - 计算机数字标准表示
 
 * **Bias**: 偏移, 即在结果加上偏移指, 或者 0b0 代表了偏移值本身. e.g. 0 -&gt; -127,  0xFF = -127 + 0xFF = -127 + 255 = 128 \(IEEE 754\)
 * 第一位为符号位S。 接下来八位为指数位E，剩下23位为分数位F \(32 位\)
@@ -89,7 +89,7 @@ description: ShanghaiTech University - Spring 2021
 
 ## C Simple
 
-#### Pointers
+### Pointers
 
 * Dangling references
 * memory leaks
@@ -105,7 +105,7 @@ description: ShanghaiTech University - Spring 2021
   * `int* a[10];` =&gt; a is an array of pointers
   * `int *a, b;` =&gt; a is pointer, b is integer
 
-#### Memory
+### Memory
 
 * 程序一共有四块内存区
   * 栈：存放局部变量
@@ -234,7 +234,7 @@ description: ShanghaiTech University - Spring 2021
 
 ## RISC-V
 
-#### Instructions
+### Instructions
 
 * ![](https://snz04pap002files.storage.live.com/y4mwCiM1SDGRlQ1V0upPdLAAdT0SGq8eQbvbgdNV7RogPurxVjCRvqXCPaoUTJretOunNk8Ty6PlCZR18DdfV_1mi7woJi0WkqK0XVqcwZdCstrBc0UowRJ9Xwo2IMF8vMph-gaUcEXm3B8k1w0VcSYN6AYnVXcLhAXLMBdWy_qzpdM6qs7xJdkxzNk9Tut7SLz?width=1816&height=534&cropmode=none)
 * Techniques:
@@ -251,14 +251,14 @@ description: ShanghaiTech University - Spring 2021
 * 伪指令
   * ![](https://snz04pap002files.storage.live.com/y4mfcArPm5wbrtiaGxz8iuy9UamZmb45wPwZh9IrUV0iD4f1xZx3jar9u_1Rj64Xh68hYgnQAwjeC31ONDkCGZtvfYJvGS2csyyMCCcdHkPd5LUTfFAvWLPIiOp_lfsDr9sS29iE7_7DH_PS9l37yCp5vpRNFh9dkHq3CFEP9shv1Be1Vo3zMK3Y13EUD05ak4N?width=1920&height=1440&cropmode=none)
 
-#### Immediates
+### Immediates
 
 * An I-type instruction can only have 12 bits of immediate
   * Bits 31:12 get the same value as Bit 11
 * RISC-V immediates are "sign extended"
   * 首位为符号位
 
-#### Little Eddiem
+### Little Eddiem
 
 * ![](https://snz04pap002files.storage.live.com/y4mT2S6RrFDKQJmTzbD0r-zFNd4ybshNaFhCiNnpCpgDarK_egSY5EirDubpuId2ljjU4s4rSfQ7thLe7LW5FI86KIudWsqymgp_6coO0D4jCGkYnc6cUPBF0DratTKLlZ8UJV2LWBZJgt_QXby0mOCcC65TDrXzgpe1kni14q0dYHvpVDyKzwcXTkF2nRSYnR9?width=2098&height=1184&cropmode=none)
   * 小端序： ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Little-Endian.svg/280px-Little-Endian.svg.png)
@@ -266,7 +266,7 @@ description: ShanghaiTech University - Spring 2021
   * 0x8f5 为负数\(itype 指令只有12位， 因此大于 0x7ff 的都是负数\)， 因此扩写成16位\(因为寄存器为32位\)的补码
     * 0xfffff8f5 \(两者取反 加一 值相同\)
 
-#### Types
+### Types
 
 ![](https://snz04pap002files.storage.live.com/y4m6bArYGFBiAHqyJvsp3OGJ_HLK-fgf4EJj5kOFUSGTWKBTkw0aQ6l-rkjdCHTfljQ430peJcBgMHS6i9BcNiWFyAlPFstoe5zNJV2jzYKJyNZH_IeyhxxUiAxyLuTEMgGdDiMYCPJ_Y63azFHjOv9oH_jPIlN9tcu5_b4x1PpZuBBMyXiEqjjdnmft_RCcrMr?width=1466&height=408&cropmode=none)
 
