@@ -309,14 +309,16 @@ Write back either PC + 4, the result of the ALU operation, or data from memory t
 
 Datapath Stage 需要时间, 下表列出了各个指令对应的 Datapath Stage 以及Total Time
 
-在本表中的延时为: IF:200 ps	ID: 100ps	EX: 200ps	MEM: 200ps	WB:	100ps
+在本表中的延时为: IF:200ps	ID: 100ps	EX: 200ps	MEM: 200ps	WB:	100ps
 
 ![Clocking](https://oss.aaaab3n.moe/uPic/kvZxTe.jpg)
 
 - **critical path**:  电路中最长的 **Delay Path**. 在上表中, 显然 *lw*是 critical path.
 - 最快: $$ \frac {1} {800}$$ picoseconds = $$1.25$$GHz
 
+### All in one
 
+![所有指令都可以根据这张图现推](https://oss.aaaab3n.moe/uPic/disc07_sol.jpg)
 
 #### REF
 
