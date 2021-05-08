@@ -379,6 +379,12 @@ Datapath Stage 需要时间, 下表列出了各个指令对应的 Datapath Stage
   - CPI = 1 / IPC 
   - IPC yes
 
+## Cache
+
+![Cache Policy](https://oss.aaaab3n.moe/uPic/OxF2cx.jpg)
+
+
+
 #### REF
 
 * [Risc-V instructions Set](https://1drv.ms/b/s!Au3reWMu7K2ChOZfWdNGg9fNARrDAA?e=QDam4p)
