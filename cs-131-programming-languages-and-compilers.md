@@ -320,6 +320,44 @@ Datapath Stage 需要时间, 下表列出了各个指令对应的 Datapath Stage
 
 ![所有指令都可以根据这张图现推](https://oss.aaaab3n.moe/uPic/123.jpg)
 
+然后根据上表, 把有值的部分画出来就行了
+
+### Pipeline (管线)
+
+![An Example of Pipeline](https://oss.aaaab3n.moe/uPic/8CEnAS.jpg)
+
+- 对单个元件的物理延时无益, 增加整体吞吐率
+- 减少电路元件空置,提高复用率
+- 在每两个 Control 之间加入 Reg 作为 Cache
+
+### Hizard
+
+**Hizard**: prevents starting the next instruction in the next clock cycle (堵马桶)
+
+- Structural: A required resource is busy 
+  - e.g. ![6kTUGG](https://oss.aaaab3n.moe/uPic/6kTUGG.png)
+  - Solution: Use different memory: **DM** and **IM**
+- Data: 
+  - Data dependency between instructions 
+  - Need to wait for previous instruction to complete its data read/write 
+    - e.g. ![kEwv0l](https://oss.aaaab3n.moe/uPic/kEwv0l.jpg)
+    - might save `t0` of wrong value
+    - 先读后写( 在图中以左右分色显示 ) —— 不总是成立
+    - 当更复杂的情况出现时情况会更糟糕
+    - Solution1: Stalling (降速)
+      - ![uwnpxI](https://oss.aaaab3n.moe/uPic/uwnpxI.jpg)
+      - Bubble: Do nothing
+      - **Reduce** Performance
+    - Solution2: Forwarding / Bypassing (搭桥)
+      - ![SCFW6e](https://oss.aaaab3n.moe/uPic/SCFW6e.png)
+      - 注意在 Time 600 附近的蓝色连线 
+- Control
+  - Flow of execution depends on previous instruction 
+
+
+
+
+
 #### REF
 
 * [Risc-V instructions Set](https://1drv.ms/b/s!Au3reWMu7K2ChOZfWdNGg9fNARrDAA?e=QDam4p)
