@@ -11,7 +11,7 @@ description: ShanghaiTech University - Spring 2021
 
 # CS 110: Computer Architecture I
 
-### Intro
+## Intro
 
 #### CA 六大思想
 
@@ -29,7 +29,7 @@ description: ShanghaiTech University - Spring 2021
 
 * 其实原版的 **CS61C**在 21 spring 改成了五大思想\(逃\)
 
-### Numbers
+## Numbers
 
 #### 整数
 
@@ -87,7 +87,7 @@ description: ShanghaiTech University - Spring 2021
 
   1. [IEEE 754 Simulator](https://www.h-schmidt.net/FloatConverter/IEEE754.html)
 
-### C Simple
+## C Simple
 
 #### Pointers
 
@@ -231,7 +231,7 @@ description: ShanghaiTech University - Spring 2021
 * 你正在往 C语言律师的方向上越走越远
   * cppquiz.com
 
-### RISC-V
+## RISC-V
 
 #### Instructions
 
@@ -275,6 +275,30 @@ description: ShanghaiTech University - Spring 2021
   * ![](https://snz04pap002files.storage.live.com/y4mUTd2NJ5QIKRlWd0NtMbOYNirRqFBlLUndMQPTIi9_fqaDFlbgM7WiIeSKITRzqE1ecF22d0wQFSDZxhijaq8nfzNr6MRWbQQ_EVMwXt81b1SpQ_glRN6pfgCAdMo0ZQ9nM9_J5urBw7-dHTI7v-3gGKoj591FHQT_EEVcUBZ8H65UMy9wlxqNs3Et6XY-_En?width=1770&height=1328&cropmode=none)
   * **DEADBEEF**: 如图所示，出现了问题。当且仅当32bit的后12bit为负数时，进行addi操作会扩展成补码。例如 `0xEFF`会扩展成`0xFFFFFEFF`。对于前20bit来说， 加上 `0xFFFFF000`无疑等于对第12位取反。
   * 解决方法是， 当后三位大于 `0x7FF`的时候，对第12位+1， 或者是对`x10`+1。 因为第12位是对于16进制的剩余类，在这个剩余类中，`0+F=F, F+1=0`, 取反加1为自身。
+
+## RISC-V Datapath
+
+### Datapath Stage
+
+#### Instruction Fetch
+
+Send address to the instruction memory （IMEM） and read IMEM at that address.
+
+#### Instruction Decode
+
+Generate control signals from the instruction bits, generate the immediate, and read registers from the Regfile.
+
+#### Execute
+
+Perform ALU operations and do branch comparison.
+
+#### Memory
+
+Read from or write to the data memory （DMEM）.
+
+
+
+
 
 #### REF
 
