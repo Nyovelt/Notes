@@ -337,6 +337,7 @@ Datapath Stage 需要时间, 下表列出了各个指令对应的 Datapath Stage
 - Structural: A required resource is busy 
   - e.g. ![6kTUGG](https://oss.aaaab3n.moe/uPic/6kTUGG.png)
   - Solution: Use different memory: **DM** and **IM**
+  - **Duplicate** resources 
 - Data: 
   - Data dependency between instructions 
   - Need to wait for previous instruction to complete its data read/write 
@@ -348,15 +349,20 @@ Datapath Stage 需要时间, 下表列出了各个指令对应的 Datapath Stage
       - ![uwnpxI](https://oss.aaaab3n.moe/uPic/uwnpxI.jpg)
       - Bubble: Do nothing
       - **Reduce** Performance
+      - Just repeat the second (and subsequent) instructions 
+      - And insert a "bubble" (noop) into the pipeline 
     - Solution2: Forwarding / Bypassing (搭桥)
       - ![SCFW6e](https://oss.aaaab3n.moe/uPic/SCFW6e.png)
       - 注意在 Time 600 附近的蓝色连线 
     - Load:
       - Stall & 交换顺序
       - ![k9N2FI](https://oss.aaaab3n.moe/uPic/k9N2FI.jpg)
+    - In RISC-V
+      - Only data hazard which requires a stall are when you use data from a load 
+      - And only a single cycle 
 - Control
   - Flow of execution depends on previous instruction 
-  - ![NHPqk5](https://oss.aaaab3n.moe/uPic/NHPqk5.png)
+  - Killing: ![Killing](https://oss.aaaab3n.moe/uPic/NHPqk5.png)
   - Every taken branch in simple pipeline costs 2 dead cycles 
   - To improve performance, use “branch prediction (分支预测)” to guess which way branch will go earlier in pipeline 
   - Only flush pipeline if branch prediction was incorrect 
@@ -365,6 +371,7 @@ Datapath Stage 需要时间, 下表列出了各个指令对应的 Datapath Stage
     - 如果没有, 继续 `PC + 4 `
     - 如果这个分支以前没有见到过: 假设不采用前向分支(forward branches)，采用后向分支(backword branches)
     - 最终计算时，使用分支结果更新预测变量上的状态
+    - 减少 Control Hazards 出现的概率
 
 ####  Summary:
 
@@ -382,6 +389,18 @@ Datapath Stage 需要时间, 下表列出了各个指令对应的 Datapath Stage
 ## Cache
 
 ![Cache Policy](https://oss.aaaab3n.moe/uPic/OxF2cx.jpg)
+
+如果没有缓存:
+
+`lw t0 0(t1)` , find `t1 -> 0x12F0` so find `Memory[0x12F0] = 99`, return to `t0`
+
+如果有缓存:
+
+`Memory[0x12F0] = 99` 这步会快
+
+我们这么定义:
+
+`Memery[Tag] = Data`
 
 
 
