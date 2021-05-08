@@ -318,7 +318,7 @@ Datapath Stage 需要时间, 下表列出了各个指令对应的 Datapath Stage
 
 ### All in one
 
-![所有指令都可以根据这张图现推](https://oss.aaaab3n.moe/uPic/disc07_sol.jpg)
+![所有指令都可以根据这张图现推](https://oss.aaaab3n.moe/uPic/123.jpg)
 
 #### REF
 
