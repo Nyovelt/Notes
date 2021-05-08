@@ -303,7 +303,9 @@ Write back either PC + 4, the result of the ALU operation, or data from memory t
 
 ### 不同指令对于不同操作的需求
 
-![klV2Xd](oss.aaaab3n.moe/uPic/klV2Xd.jpg)
+![](https://oss.aaaab3n.moe/uPic/klV2Xd.jpg)
+
+
 
 
 
