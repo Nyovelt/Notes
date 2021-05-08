@@ -229,6 +229,7 @@ description: ShanghaiTech University - Spring 2021
   * 如果感觉自己被加强了，可以试试 [3\(b\)](https://robotics.shanghaitech.edu.cn/courses/ca/20s/notes/midterm_sol.pdf)
 
 * 你正在往 C语言律师的方向上越走越远
+  
   * cppquiz.com
 
 ## RISC-V
@@ -296,7 +297,13 @@ Perform ALU operations and do branch comparison.
 
 Read from or write to the data memory （DMEM）.
 
+### Writeback
 
+Write back either PC + 4, the result of the ALU operation, or data from memory to the RegFile.
+
+### 不同指令对于不同操作的需求
+
+![klV2Xd](oss.aaaab3n.moe/uPic/klV2Xd.jpg)
 
 
 
