@@ -375,6 +375,9 @@ Datapath Stage 需要时间, 下表列出了各个指令对应的 Datapath Stage
   - 加速加速加速
 - SuperScalar Processors 将多个执行单元用于额外的指令级并行性
   - 性能优势与代码高度相关
+  - 乱序执行
+  - CPI = 1 / IPC 
+  - IPC yes
 
 #### REF
 
