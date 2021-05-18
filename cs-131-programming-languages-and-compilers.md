@@ -404,6 +404,82 @@ Datapath Stage 需要时间, 下表列出了各个指令对应的 Datapath Stage
 
 
 
+## OS
+
+### Boot
+
+- 在某个内存位置开始执行指令
+  - BIOS: 查找一个存储设备并加载第一个扇区（数据块）
+    - 后继者 UEFI : 现代,友好,复杂
+  - Bootloader: 从磁盘将OS内核加载到内存中的某个位置，然后跳入该位置。
+  - OS Boot: 初始化服务、驱动程序等
+  - Init: 启动一个等待输入循环的应用程序 (e.g. Terminal, Desktop )
+
+### IO
+
+**轮询**:
+
+- 在到设备的总线上通常有两个寄存器: 控制寄存器(0/1, r/w)和数据寄存器
+- 当控制寄存器为 1 时设备可用
+- 此时CPU从数据寄存器中读取数据,并复位控制寄存器为0
+- 该过程称为轮询(**Polling**), 为了避免IO wait
+
+![pay attention to WaitLoop](https://oss.aaaab3n.moe/uPic/z8sQRj.png)
+
+计算轮询的时间占比:
+
+![SU8NHb](https://oss.aaaab3n.moe/uPic/SU8NHb.png)
+
+**Interrupt-driven**
+
+在运行程序时,发现IO就绪,此时中断程序(**Suspend**),将CPU用于IO处理
+
+方法: 插针(**jalr**)
+
+**术语**
+
+![TRzAsS](https://oss.aaaab3n.moe/uPic/TRzAsS.png)
+
+Interupt - 异步
+
+Exception - try
+
+Trap - Except
+
+![QmyYg5](https://oss.aaaab3n.moe/uPic/QmyYg5.png)
+
+![gVEZXq](https://oss.aaaab3n.moe/uPic/gVEZXq.png)
+
+为Pipeline增加了鲁棒性,通过在每一个cache中加入 exception 的方式
+
+### Precessed
+
+- syscall and fork
+  - 通过 sys call 来完成大部分任务和函数,以及资源的调用,这一步由操作系统**代劳**
+- Supervisor
+  - 访问部分物理内存
+- Scheduling
+  - 快速切换上下文, 并为每个程序设置时间,来保证绝大部分程序能分配到差不多的执行用时
+  - 而快速切换上下文的技术可以快速的转移程序的执行
+- Virtual Memory
+  - 虚拟内存空间 通过 操作系统 对 物理内存空间的 映射
+
+![image-20210518114735112](/Users/canarypwn/Library/Application Support/typora-user-images/image-20210518114735112.png)
+
+物理内存为页 (Pages)的集合
+
+页为块(Blocks)的集合
+
+块为一段字节(Word)
+
+所以给每个用户分一个页(或者页表), 页是对内存块的标记
+
+ 页表保存在MEMORY中
+
+#### 内存管理
+
+
+
 #### REF
 
 * [Risc-V instructions Set](https://1drv.ms/b/s!Au3reWMu7K2ChOZfWdNGg9fNARrDAA?e=QDam4p)
