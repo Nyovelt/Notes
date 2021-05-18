@@ -464,7 +464,7 @@ Trap - Except
 - Virtual Memory
   - 虚拟内存空间 通过 操作系统 对 物理内存空间的 映射
 
-![image-20210518114735112](/Users/canarypwn/Library/Application Support/typora-user-images/image-20210518114735112.png)
+![e0AIsB](https://oss.aaaab3n.moe/uPic/e0AIsB.png)
 
 物理内存为页 (Pages)的集合
 
