@@ -476,7 +476,31 @@ Trap - Except
 
  页表保存在MEMORY中
 
+![GnLL4T](https://oss.aaaab3n.moe/uPic/GnLL4T.jpg)
+
 #### 内存管理
+
+- 线性页表
+  - 1位检查是否页表存在
+  - PPN: 内存页
+  - DPN: 磁盘页
+  - 状态位: 读/写
+  - 只要活动的用户进程发生更改，操作系统就会设置页面表基本寄存器
+  - ![RJii47](https://oss.aaaab3n.moe/uPic/RJii47.png)
+  - 错误处理:
+    - 不存在 -> 分配一个新的
+  - 大小
+    - ![GVkdkc](https://oss.aaaab3n.moe/uPic/GVkdkc.png)
+- 分级页表
+  - ![EByOe0](https://oss.aaaab3n.moe/uPic/EByOe0.png)
+
+虚拟内存便于检查,并且有效率
+
+在页表中有时候会做虚拟地址到物理地址的缓存(**Translation LookasideBuffers **)
+
+![fuYv5B](https://oss.aaaab3n.moe/uPic/fuYv5B.png)
+
+![DhkaUq](https://oss.aaaab3n.moe/uPic/DhkaUq.png)
 
 
 
